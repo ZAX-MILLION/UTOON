@@ -1,0 +1,24 @@
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Generated agent context caches
+graft/
+.graphify/
+graphify-out/
+
+# Future JS/Astro outputs
+node_modules/
+dist/
+.astro/
+.vercel/
+
+# Logs
+*.log

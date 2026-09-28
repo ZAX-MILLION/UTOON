@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-09-28",
+  "bundle": {
+    "repository": "ZAX-MILLION/agent-skill-bundle",
+    "commit": "8ba111e7233e85b4a98c0ea2904750cefbd68709",
+    "policy": "strict-on-demand"
+  },
+  "external_tools": {
+    "graft": {
+      "repository": "trailhq/Graft",
+      "commit": "dfc46f0b6eac055d456cefa299395b441edb1f28",
+      "package": "@nanonets/graft",
+      "reviewed_version": "0.20.0",
+      "purpose": "focused local repository context and code graph"
+    },
+    "graphify": {
+      "repository": "Graphify-Labs/graphify",
+      "commit": "d6eaa8aae8df155874ebb1044302c055c286342a",
+      "package": "graphifyy",
+      "reviewed_version": "0.9.71",
+      "purpose": "deep code/document knowledge graph"
+    }
+  },
+  "external_candidates_not_installed": [
+    {
+      "repository": "astrolicious/agent-skills",
+      "skill": "astro",
+      "reason": "Astro application guidance; requires separate source/license review before admission"
+    },
+    {
+      "repository": "mikkelkrogsholm/dev-skills",
+      "skill": "tailwindcss",
+      "reason": "Tailwind v4 live-doc routing; only add if project agents repeatedly produce stale v3 syntax"
+    }
+  ]
+}

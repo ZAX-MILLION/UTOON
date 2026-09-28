@@ -1,7 +1,9 @@
 # UTOON PRD — Current Baseline
 
 ## Product
-UTOON is a fast, mobile-first browser gaming platform.
+UTOON is a fast, mobile-first browser gaming **aggregation and discovery platform**.
+
+UTOON does not make the third-party games in the catalog. It imports/synchronizes games from approved providers and presents them through UTOON pages and provider-hosted embeds.
 
 **Core experience:** Discover → Play instantly → Find another good game.
 
@@ -15,9 +17,28 @@ Prove:
 4. provider monetization generates viable revenue;
 5. useful UTOON pages earn organic search visibility.
 
+## Catalog model
+
+The system should support automated provider catalog ingestion:
+
+```
+Provider feed/API/catalog
+→ Provider adapter
+→ Normalized UTOON records
+→ Publication/QA/index gates
+→ UTOON pages
+→ Provider iframe/embed
+```
+
+The imported catalog may be large internally, but the first public MVP exposes roughly 20–50 vetted games.
+
+No synthetic/fabricated games, fake IDs, fake thumbnails, or guessed provider URLs.
+
 ## MVP
 - Web/PWA-first.
-- 20–50 vetted games.
+- Provider-sourced games.
+- Automated catalog sync where the provider officially supports it.
+- 20–50 vetted games publicly exposed initially.
 - No account required.
 - No Premium/payments.
 - No Android build.
@@ -30,7 +51,7 @@ The game page is the primary organic landing experience.
 
 Required elements:
 - title/identity;
-- deferred game player;
+- deferred provider game player;
 - related/next games;
 - controls;
 - how to play;
@@ -48,7 +69,7 @@ Small, visual, clean:
 - minimal footer/legal links.
 
 ## Game lifecycle
-Candidate → Testing → Approved → Published → Index/Noindex.
+Imported → Candidate → Testing → Approved → Published → Index/Noindex.
 
 Exceptional states: Broken, Delisted, Removed by Provider.
 
@@ -68,19 +89,19 @@ Target good Core Web Vitals:
 ## Stack
 Astro + strict TypeScript + Tailwind CSS 4. Vanilla TypeScript by default; React only for justified islands.
 
-Initial content: Astro Content Collections. Supabase later only when persistent backend data is required.
+Initial provider records may be cached/generated from provider feeds. A database is introduced only when sync state, scale, operations, or other persistent server-side requirements justify it.
 
 ## Accessibility
 Practical WCAG 2.2 AA for UTOON-owned UI.
 
 ## Rights
-No asset without provenance. Provider web rights do not imply app-store rights.
+No asset without provenance. Provider web rights do not imply app-store rights. Use official provider integration methods or explicit written permission.
 
 ## Localization
 English-first architecture, Arabic-ready (UTF-8, locale-aware structure, RTL-ready styles). Arabic expansion is an experiment, not an assumption.
 
 ## Deferred
-Accounts, Google login, Premium, PayPal, Patreon, Ko-fi, Google Play Billing, ratings, comments, XP, achievements, leaderboards, large admin CMS, complex recommendation engine, native Android, mass catalog import.
+Accounts, Google login, Premium, PayPal, Patreon, Ko-fi, Google Play Billing, ratings, comments, XP, achievements, leaderboards, large admin CMS, complex recommendation engine, native Android.
 
 ## Scaling rule
-Scale 20–50 → 100 → 250 → 500 → 1,000+ only when quality, SEO, session depth, and revenue data justify it.
+The ingestion pipeline can handle a large source catalog, but public exposure/indexing scales only when quality, SEO, session depth, provider reliability, and revenue data justify it.

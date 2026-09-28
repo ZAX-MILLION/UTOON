@@ -2,122 +2,105 @@
 
 No phase may silently skip its exit criteria.
 
-## Phase 0 — Foundation (current)
+## Phase 0 — Foundation
+- [x] GitHub repository.
+- [x] PRD, rules, brain/decision log, architecture, skill matrix.
+- [x] Graft/Graphify roles.
+- [x] Clarify provider-fed catalog model.
+- [ ] Keep `code_authorized=false` until Phase 1 exits.
 
-- [x] Create GitHub repository.
-- [x] Establish PRD, rules, brain/decision log, architecture, skill matrix.
-- [x] Define Graft/Graphify roles.
-- [ ] Review this foundation PR.
-- [ ] Run `node scripts/verify-foundation.mjs`.
-- [ ] Keep `code_authorized=false`.
-
-**Exit:** foundation documents accepted.
-
-## Phase 1 — Rights, brand, provider gates
+## Phase 1 — Provider, rights, brand, catalog-access gates
 
 - [ ] UTOON trademark/brand clearance.
 - [ ] Confirm domain strategy.
 - [ ] Send provider questionnaire.
-- [ ] Record written answers.
-- [ ] Confirm game/thumbnail/metadata/localization rights.
+- [ ] Confirm publisher acceptance.
+- [ ] Confirm official bulk catalog API/feed availability.
+- [ ] If no bulk feed: document approved alternative (DGI individual embeds / white label / other).
+- [ ] Confirm game/embed rights.
+- [ ] Confirm thumbnail/metadata/localization rights.
 - [ ] Confirm ad/revenue/payout/consent terms.
-- [ ] Confirm compatibility-observation permission.
-- [ ] Record Android/app-store rights status separately.
+- [ ] Confirm Android/app-store rights separately.
 - [ ] Determine legal/privacy review requirements.
 
-**Exit:** no unresolved issue capable of making planned MVP distribution unlawful or contractually incompatible.
+**Exit:** a legally/contractually valid provider ingestion method exists.
 
 ## Phase 2 — Design system before pages
 
 - [ ] Define visual direction and anti-patterns.
-- [ ] Establish tokens: color, type, spacing, radius, elevation.
-- [ ] Mobile-first home wireframe.
+- [ ] Establish design tokens.
+- [ ] Mobile-first home/catalog wireframe.
 - [ ] Mobile-first game-page wireframe.
 - [ ] Desktop adaptations.
-- [ ] Accessibility review of design.
-- [ ] Performance review of design.
-- [ ] Create original UTOON logo/brand assets only after brand clearance.
+- [ ] Accessibility review.
+- [ ] Performance review.
+- [ ] Original UTOON branding after clearance.
 
-**Exit:** design approved without requiring heavy JS/video/effects.
-
-## Phase 3 — Technical scaffold
+## Phase 3 — Technical scaffold + provider ingestion
 
 - [ ] Set `code_authorized=true` in reviewed PR.
 - [ ] Scaffold Astro + strict TypeScript + Tailwind CSS 4.
 - [ ] Configure lint/format/typecheck/test/build.
-- [ ] Configure Content Collections schema.
-- [ ] Create central config, game service, provider boundary, SEO layer, analytics interface.
+- [ ] Define normalized Game schema.
+- [ ] Implement first provider adapter.
+- [ ] Implement catalog sync/fetch from official provider endpoint.
+- [ ] Validate provider responses and URLs.
+- [ ] Keep raw/source metadata auditable.
+- [ ] Create catalog service, SEO layer, analytics interface.
 - [ ] Add CI checks.
 
-**Exit:** empty product shell builds with zero avoidable client JS.
+**Exit:** a real provider catalog can be synced into normalized UTOON data without fabricating records.
 
-## Phase 4 — One vertical slice
+## Phase 4 — One provider game vertical slice
 
-Implement one real/licensed game end-to-end:
-- [ ] content record;
+Take one imported real game end-to-end:
+- [ ] provider record syncs;
+- [ ] normalized record passes schema;
 - [ ] game card;
 - [ ] game page;
-- [ ] deferred player load;
+- [ ] deferred provider iframe;
 - [ ] controls/how-to-play;
 - [ ] related-games section;
 - [ ] report-problem path;
 - [ ] metadata/canonical;
 - [ ] accessibility;
-- [ ] analytics events that can actually be observed.
+- [ ] analytics;
+- [ ] rights check.
 
-**Exit:** one game passes build, browser QA, accessibility, performance, SEO, rights checks.
+**Exit:** one real provider game works end-to-end.
 
-## Phase 5 — MVP catalog
+## Phase 5 — Controlled public MVP
 
-- [ ] Grow to 20–50 vetted games.
-- [ ] Record QA status and last-tested date.
-- [ ] Publish only useful pages.
-- [ ] Keep weak/thin pages unpublished or noindex by explicit decision.
-- [ ] Add lightweight search only if useful at catalog size.
-- [ ] Add Recently Played if verified helpful.
-
-**Exit:** catalog is reliable on target mobile/desktop browsers.
+- [ ] Sync provider catalog.
+- [ ] Select 20–50 real games for initial public exposure.
+- [ ] Record QA status/last-tested state.
+- [ ] Keep imported-but-unapproved games unpublished/noindex.
+- [ ] Add search/categories over published catalog.
+- [ ] Add Recently Played if helpful.
+- [ ] Handle provider removals/updates.
 
 ## Phase 6 — SEO/analytics launch readiness
-
 - [ ] robots.txt.
 - [ ] sitemap with indexable URLs only.
 - [ ] canonical validation.
 - [ ] structured data validation.
 - [ ] Search Console.
-- [ ] analytics privacy/consent verification.
-- [ ] broken-link scan.
+- [ ] analytics/privacy verification.
 - [ ] crawlable internal links.
 - [ ] no accidental staging indexation.
 
 ## Phase 7 — Quality gates
-
 - [ ] Web Quality audit.
 - [ ] Accessibility audit.
-- [ ] Core Web Vitals/performance lab check.
+- [ ] Performance/Core Web Vitals.
 - [ ] Security audit.
 - [ ] Rights/provenance audit.
 - [ ] UX copy audit.
 - [ ] Cross-browser/device QA.
-- [ ] Release readiness + rollback plan.
+- [ ] Release readiness + rollback.
 
 ## Phase 8 — Launch experiment
+Measure acquisition, play rate, second-game selection, returns, provider revenue/session, provider failures, and organic search evidence.
 
-Measure actual:
-- organic impressions/clicks;
-- play interaction rate;
-- second-game selection;
-- pages/plays per session;
-- return signals;
-- broken-game reports;
-- provider revenue/session;
-- revenue by geography/device where available.
-
-Do not scale catalog from intuition.
-
-## Phase 9 — Evidence-driven expansion
-
-Only after evidence:
-20–50 → 100 → 250 → 500 → 1,000+.
-
-Backend, accounts, Arabic expansion, Android, Premium, additional providers, and owned games remain separate evidence-gated decisions.
+## Phase 9 — Evidence-driven catalog expansion
+The source catalog can already be large; increase **published/indexed** coverage only when evidence supports it.

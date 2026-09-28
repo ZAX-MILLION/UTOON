@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "reviewed_at": "2026-09-28",
   "bundle": {
     "repository": "ZAX-MILLION/agent-skill-bundle",
@@ -12,6 +12,7 @@
       "commit": "dfc46f0b6eac055d456cefa299395b441edb1f28",
       "package": "@nanonets/graft",
       "reviewed_version": "0.20.0",
+      "license": "MIT",
       "purpose": "focused local repository context and code graph"
     },
     "graphify": {
@@ -19,19 +20,40 @@
       "commit": "d6eaa8aae8df155874ebb1044302c055c286342a",
       "package": "graphifyy",
       "reviewed_version": "0.9.71",
+      "license": "Apache-2.0",
       "purpose": "deep code/document knowledge graph"
     }
   },
-  "external_candidates_not_installed": [
+  "marketplace_candidates_not_installed": [
     {
-      "repository": "astrolicious/agent-skills",
+      "repository": "mindrally/skills",
       "skill": "astro",
-      "reason": "Astro application guidance; requires separate source/license review before admission"
+      "gap": "Astro application development",
+      "decision": "review at Phase 3 only if live docs plus project rules are insufficient"
     },
     {
-      "repository": "mikkelkrogsholm/dev-skills",
-      "skill": "tailwindcss",
-      "reason": "Tailwind v4 live-doc routing; only add if project agents repeatedly produce stale v3 syntax"
+      "repository": "wshobson/agents",
+      "skill": "tailwind-design-system",
+      "gap": "Tailwind CSS v4 design-system implementation",
+      "decision": "review at Phase 3 only if stale v3 mistakes recur"
+    },
+    {
+      "repository": "terminalskills/skills",
+      "skill": "playwright-testing",
+      "gap": "Playwright-specific E2E patterns",
+      "decision": "review at Phase 4/6 if existing webapp/browser QA skills are insufficient"
+    },
+    {
+      "repository": "ghaida/intent",
+      "skill": "localize",
+      "gap": "RTL/cultural localization",
+      "decision": "defer until Arabic experiment"
+    },
+    {
+      "repository": "curiositech/some_claude_skills",
+      "skill": "pwa-expert",
+      "gap": "PWA/service-worker implementation",
+      "decision": "defer until offline/install behavior is a real product requirement"
     }
   ]
 }

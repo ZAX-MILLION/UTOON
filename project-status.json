@@ -1,0 +1,11 @@
+{
+  "phase": "foundation",
+  "code_authorized": false,
+  "brand_clearance": "pending",
+  "provider_acceptance": "pending",
+  "provider_rights": "pending",
+  "provider_commercial_terms": "pending",
+  "privacy_consent_review": "pending",
+  "android_provider_rights": "unknown",
+  "notes": "Change code_authorized only through a reviewed PR after Phase 1 gates are resolved."
+}

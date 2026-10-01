@@ -87,10 +87,27 @@ That means:
 
 ## Provider-specific status
 
-### GameDistribution / Azerion
-Current public publisher material clearly supports Direct Game Integration using provider-hosted iframe links. UTOON must confirm whether a publisher account provides a bulk catalog feed/API or another approved automation method before implementing automatic full-catalog sync.
+### GameMonetize
+The official RSS Builder is designed for RSS/JSON aggregation into publisher game portals. The full builder query must be used; the abbreviated `?format=json&amount=all` form does not return the catalog.
+
+Observed 2026-10-01:
+- broad `amount=All` query: 5,001 records;
+- `amount=10`: 11 records;
+- `amount=100`: 101 records;
+- `page`, `offset`, and `start` probes did not paginate the broad query;
+- category slicing plus alternate official popularity views exposed 35,369 unique IDs;
+- provider-hosted play URLs and thumbnails were present for the researched set;
+- 1,106 reachable records had no provider instructions;
+- 13 had invalid/non-positive dimensions.
+
+The sync must therefore treat GameMonetize as a sliced/cached feed, not assume one request represents the entire catalog. Imported records remain untested until UTOON QA proves otherwise. See `docs/PROVIDER_CATALOG_RESEARCH_2026-10-01.md`.
 
 ### GamePix
-Current publisher material explicitly advertises JSON API/RSS/direct embed options. It is technically compatible with the catalog-sync model, subject to account approval and terms.
+Current publisher material advertises JSON API/direct embed options. Existing official API documentation describes `limit`/`offset` pagination and requires a publisher `sid` for tracking. The current public RSS page warns existing publisher-account holders to use their dashboard instead of the generic public RSS feed.
 
-The provider layer exists so UTOON can support either or both without changing the frontend architecture.
+UTOON must use the user's real publisher SID/dashboard feed. Do not substitute a demo/default SID.
+
+### GameDistribution / Azerion
+Current public publisher material clearly supports Direct Game Integration using provider-hosted iframe links after onboarding. UTOON must confirm whether the approved publisher account provides a bulk catalog feed/API or another approved automation method before implementing automatic full-catalog sync.
+
+The provider layer exists so UTOON can support all approved providers without changing the frontend architecture.

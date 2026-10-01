@@ -40,9 +40,11 @@ Search / direct traffic → Game page → Play → Related/next game → Second 
 The ingestion layer may import many games, but the first public surface remains roughly 20–50 vetted games. This is a publication/SEO choice, not a technical inability to ingest more.
 
 ### Provider status
-GameDistribution/Azerion is the preferred initial commercial conversation. Public docs clearly support Direct Game Integration via iframe; bulk catalog feed/API availability must be confirmed with the publisher team.
+GameMonetize has now been technically verified as a serious catalog source. Its official RSS Builder is intended for JSON/RSS aggregation into game portals. The short `?format=json&amount=all` URL is not sufficient; the full RSS Builder query shape is required. Empirical research on 2026-10-01 reached 35,369 unique IDs by combining official category slices and alternate popularity views. The provider feed remains capped at 5,001 records per broad query and no working page/offset pagination was observed. See `docs/PROVIDER_CATALOG_RESEARCH_2026-10-01.md`.
 
-GamePix is a technically relevant fallback/additional provider because its current publisher site explicitly advertises JSON API/RSS/direct embed integration.
+GamePix remains a technically relevant additional provider because its publisher material explicitly advertises JSON API/direct embed integration. Its documented catalog API uses limit/offset pagination and a publisher SID for attribution. Existing publisher-account holders are directed by the current RSS page to use the dashboard rather than the generic public RSS URL.
+
+GameDistribution/Azerion public docs clearly support Direct Game Integration via provider-hosted iframe links after onboarding. No public bulk catalog feed/API has been verified for UTOON.
 
 ### User identity
 No accounts in MVP. Local Recently Played may be used. Do not call it Continue Playing unless true resumable state exists.

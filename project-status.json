@@ -7,5 +7,5 @@
   "provider_commercial_terms": "pending",
   "privacy_consent_review": "pending",
   "android_provider_rights": "unknown",
-  "notes": "Change code_authorized only through a reviewed PR after Phase 1 gates are resolved."
+  "notes": "Provider catalog research completed 2026-10-01; GameMonetize public feed technically verified, but code_authorized remains false until Phase 1 rights/brand/privacy/provider gates are resolved. See docs/PROVIDER_CATALOG_RESEARCH_2026-10-01.md."
 }
